@@ -15,18 +15,10 @@ export default class Calculator extends Component {
 
     state = { ...initialState }
 
-    constructor(props) {
-        super(props)
-
-        this.clearMemory = this.clearMemory.bind(this)
-        this.setOperation = this.setOperation.bind(this)
-        this.addDigit = this.addDigit.bind(this)
-    }
-
-    clearMemory() {
+    clearMemory = () => {
         this.setState({ ...initialState})
     }
-    setOperation(operation) {
+    setOperation = (operation) => {
         if (this.state.current === 0) {
             this.setState({ operation, current: 1, clearDisplay: true })
         } else {
@@ -51,7 +43,7 @@ export default class Calculator extends Component {
             })
         }
     }
-    addDigit(n) {
+    addDigit = (n) => {
         if (n === '.' && this.state.displayValue.includes('.')) {
             return 
         }
